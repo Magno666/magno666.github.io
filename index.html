@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&display=swap">
-  <script type="module" crossorigin src="/assets/index-DdZrJlf9.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-D4rdOlI-.css">
+  <script type="module" crossorigin src="/assets/index-e4HWX_4A.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DzZiUSKk.css">
 </head>
 <body>
 
@@ -160,6 +160,49 @@
       <p class="note">¿Algo se vio raro? Baja el registro y mándalo — ahí queda lo que pasó, sin nada que te identifique.</p>
     </div>
   </section>
+
+  <!-- ======================================================== ajustes ===
+       A propósito NO usa el mismo mecanismo que el mapa (que congela al
+       jugador mientras está abierto): esto se puede abrir a media partida,
+       con las bestias moviéndose y el reloj corriendo detrás. -->
+  <button class="settingsBtn" id="btnSettings" type="button" hidden aria-label="Ajustes">Ajustes</button>
+  <div class="settingsPanel" id="settingsPanel" hidden>
+    <div class="settingsHead">
+      <b>Ajustes</b>
+      <button class="settingsClose" id="settingsClose" type="button" aria-label="Cerrar ajustes">×</button>
+    </div>
+
+    <label class="settingsRow">
+      <span>Calidad <b id="qualityValue">7</b>/10</span>
+      <input type="range" id="qualityRange" min="1" max="10" step="1" value="7">
+    </label>
+    <p class="settingsHint">Detalle del bosque, sombras y resolución. Más bajo, más FPS.</p>
+
+    <label class="settingsRow settingsCheck">
+      <span>Mostrar FPS</span>
+      <input type="checkbox" id="fpsToggle">
+    </label>
+
+    <hr class="settingsRule">
+    <p class="settingsSub">Volumen</p>
+    <label class="settingsRow">
+      <span>Pasos</span>
+      <input type="range" id="volSteps" min="0" max="100" step="1" value="100">
+    </label>
+    <label class="settingsRow">
+      <span>Árboles (ambiente)</span>
+      <input type="range" id="volTrees" min="0" max="100" step="1" value="100">
+    </label>
+    <label class="settingsRow">
+      <span>Bestias</span>
+      <input type="range" id="volBeasts" min="0" max="100" step="1" value="100">
+    </label>
+    <label class="settingsRow">
+      <span>Balizas</span>
+      <input type="range" id="volBeacon" min="0" max="100" step="1" value="100">
+    </label>
+  </div>
+  <p class="fpsBadge" id="fpsBadge" hidden>-- FPS</p>
 
   <!-- capa de estática / cordura, dibujada aparte para no tocar la escena 3D -->
   <canvas id="fx"></canvas>
